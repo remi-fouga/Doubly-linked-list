@@ -14,6 +14,7 @@ typedef struct liste{
     int taille;
 }liste;
 
+void retirerMaillonCourant(liste* laliste,maillon* maillonAretire)
 void ajoutmaillonDebut(liste* laliste, station *data);
 void ajoutmaillonFin(liste* laliste, station *data);
 void ajoutmaillonMilieu(liste* laliste, station *data, int index);

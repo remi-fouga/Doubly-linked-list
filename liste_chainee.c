@@ -133,6 +133,35 @@ maillon * retirerMaillon(liste* laliste, int index)
     return NULL;
 }
 
+void retirerMaillonCourant(liste* laliste,maillon* maillonAretire)
+{
+    if(maillonAretire!=NULL && laliste!=NULL)
+    {
+        if(laliste->debut==maillonAretire)
+        {
+            laliste->debut=maillonAretire->suivant;
+        }
+        else
+        {
+            maillonAretire->precedent->suivant=maillonAretire->suivant;
+        }
+        if(laliste->fin==maillonAretire)
+        {
+            laliste->fin=maillonAretire->precedent;
+        }else
+        {
+            maillonAretire->suivant->precedent=maillonAretire->precedent;
+        }
+        maillonAretire->suivant=NULL;
+        maillonAretire->precedent=NULL;
+        laliste->taille--;
+    }
+    else
+    {
+        fprintf(stderr, "paramettre incorect");
+    }
+}
+
 station * supprimerMaillon(liste* laliste, int index)
 {
     station* stationdata=NULL;
